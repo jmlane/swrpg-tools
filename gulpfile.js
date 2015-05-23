@@ -11,6 +11,13 @@ var logBuffer = function (buf) {
   gutil.log(buf.toString());
 };
 
+gulp.task('build', ['set prod', 'bundle']);
+
+gulp.task('set prod', function () {
+  process.env.NODE_ENV = 'production';
+  gutil.log(gutil.colors.red('NODE_ENV='+process.env.NODE_ENV));
+});
+
 gulp.task('dev', ['watch-bundle', 'watch-serve'], function () {
   gutil.log('Now running in development mode.');
 });
