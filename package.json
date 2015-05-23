@@ -4,11 +4,18 @@
   "version": "0.1.0",
   "description": "A Web app containing tools for managing a Star Wars Role Playing Game (FFG).",
   "license": "ISC",
+  "main": "server/main.js",
+  "scripts": {
+    "start": "node server/main.js"
+  },
   "private": true,
   "browserify": {
     "transform": [
       ["reactify", {"es6": true}]
     ]
+  },
+  "dependencies": {
+    "express": "^4.12.4"
   },
   "devDependencies": {
     "browserify": "^10.2.1",
