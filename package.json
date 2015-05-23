@@ -4,5 +4,19 @@
   "version": "0.1.0",
   "description": "A Web app containing tools for managing a Star Wars Role Playing Game (FFG).",
   "license": "ISC",
-  "private": true
+  "private": true,
+  "browserify": {
+    "transform": [
+      ["reactify", {"es6": true}]
+    ]
+  },
+  "devDependencies": {
+    "browserify": "^10.2.1",
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1"
+  }
 }
