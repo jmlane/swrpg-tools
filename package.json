@@ -1,0 +1,8 @@
+{
+  "name": "swrpg",
+  "author": "Jonathan M. Lane <jmlane@gmail.com>",
+  "version": "0.1.0",
+  "description": "A Web app containing tools for managing a Star Wars Role Playing Game (FFG).",
+  "license": "ISC",
+  "private": true
+}
