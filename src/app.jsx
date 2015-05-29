@@ -1,4 +1,5 @@
 var React = require('react');
+var Header = require('./components/Header.jsx');
 var CharacterTable = require('./CharacterTable.jsx');
 
 var data = {
@@ -33,6 +34,7 @@ var data = {
 
 React.render(
   <div className="container" >
+    <Header />
     <CharacterTable data={data.characters} />
   </div>,
   document.body);
