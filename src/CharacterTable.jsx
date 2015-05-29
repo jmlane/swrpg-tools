@@ -1,6 +1,6 @@
 var React = require('react');
 
-module.exports = React.createClass({
+var CharacterTable = React.createClass({
   render: function () {
     var rows = this.props.data.map((character) => {
       return (
@@ -13,18 +13,23 @@ module.exports = React.createClass({
     });
 
     return (
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Career</th>
-            <th>Player</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
-        </tbody>
-      </table>
+      <div>
+        <h2>Characters</h2>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Career</th>
+              <th>Player</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </table>
+      </div>
     )
   }
 });
+
+module.exports = CharacterTable;

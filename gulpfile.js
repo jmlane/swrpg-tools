@@ -53,7 +53,7 @@ gulp.task('watch-serve', function () {
 
 gulp.task('bundle', function () {
   var b = browserify();
-  b.add('./src/app.js');
+  b.add('./src/app.jsx');
 
   return b.bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -64,7 +64,7 @@ gulp.task('bundle', function () {
 gulp.task('watch-bundle', function () {
   var w = watchify(browserify(watchify.args));
   w.on('log', gutil.log);
-  w.add('./src/app.js');
+  w.add('./src/app.jsx');
 
   var watchifyBundle = function () {
     return w.bundle()

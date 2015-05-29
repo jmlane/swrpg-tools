@@ -17,5 +17,7 @@ var data = {
 };
 
 React.render(
-  React.createElement(CharacterTable, {data: data.characters}),
-  document.getElementById('character-table'));
+  <div className="container" >
+    <CharacterTable data={data.characters} />
+  </div>,
+  document.body);
