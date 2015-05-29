@@ -1,6 +1,7 @@
 var React = require('react');
 var Header = require('./components/Header.jsx');
 var CharacterTable = require('./CharacterTable.jsx');
+var CharacterSheet = require('./CharacterSheet.jsx');
 
 var data = {
   characters: [
@@ -36,5 +37,6 @@ React.render(
   <div className="container" >
     <Header />
     <CharacterTable data={data.characters} />
+    <CharacterSheet name={data.characters[0].name} player={data.characters[0].player} />
   </div>,
   document.body);
