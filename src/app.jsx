@@ -1,5 +1,6 @@
 var React = require('react');
 var Header = require('./components/Header.jsx');
+var InitiativeTool = require('./components/InitiativeTool.jsx');
 var CharacterTable = require('./CharacterTable.jsx');
 
 var data = {
@@ -35,6 +36,7 @@ var data = {
 React.render(
   <div className="container" >
     <Header />
+    <InitiativeTool data={data.characters} />
     <CharacterTable data={data.characters} />
   </div>,
   document.body);
