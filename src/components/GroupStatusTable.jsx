@@ -14,11 +14,11 @@ const GroupStatusTable = React.createClass({
         <tr key={i}>
           <th scope="row">{character.name}</th>
           <td><ClickToEdit value={character.soak} type="number"/></td>
-          <td>{character.defense}</td>
-          <td>{character.woundThreshold}</td>
-          <td>{character.wounds}</td>
-          <td>{character.strainThreshold}</td>
-          <td>{character.strain}</td>
+          <td><ClickToEdit value={character.defense} type="number"/></td>
+          <td><ClickToEdit value={character.woundThreshold} type="number"/></td>
+          <td><ClickToEdit value={character.wounds} type="number"/></td>
+          <td><ClickToEdit value={character.strainThreshold} type="number"/></td>
+          <td><ClickToEdit value={character.strain} type="number"/></td>
         </tr>
       );
     });

@@ -13,22 +13,32 @@ var data = {
     {
       name: "B1-L1",
       player: "Bill",
-      career: "Bounty Hunter"
+      career: "Bounty Hunter",
+      soak: 0
     },
     {
       name: "Onin",
       player: "Kyle",
-      career: "Hired Gun"
+      career: "Hired Gun",
+      soak: 0
     },
     {
       name: "Tuck Cosmicfall",
       player: "Heather",
-      career: "Bounty Hunter"
+      career: "Bounty Hunter",
+      soak: 0
     },
     {
       name: "Prof. Bidbits",
       player: "Kris",
-      career: "Colonist"
+      career: "Colonist",
+      soak: 0
+    },
+    {
+      name: "Ralph",
+      player: "Richard",
+      career: "Colonist",
+      soak: 0
     }
   ]
 };
