@@ -7,7 +7,8 @@ var data = {
     {
       name: "Shot Dun Yun",
       player: "Christian",
-      career: "Colonist"
+      career: "Colonist",
+      soak: 0
     },
     {
       name: "B1-L1",

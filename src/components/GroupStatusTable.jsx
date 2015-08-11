@@ -1,4 +1,5 @@
 const React = require('react');
+const ClickToEdit = require('./ClickToEdit.jsx');
 
 const GroupStatusTable = React.createClass({
   getDefaultProps() {
@@ -12,7 +13,7 @@ const GroupStatusTable = React.createClass({
       return (
         <tr key={i}>
           <th scope="row">{character.name}</th>
-          <td>{character.soak}</td>
+          <td><ClickToEdit value={character.soak} type="number"/></td>
           <td>{character.defense}</td>
           <td>{character.woundThreshold}</td>
           <td>{character.wounds}</td>
