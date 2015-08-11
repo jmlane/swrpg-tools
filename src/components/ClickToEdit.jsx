@@ -1,4 +1,9 @@
 const React = require('react');
+const $ = require('jquery');
+
+const IsNodeOrAChildOf = (node, target) => {
+  return $(target).find(node).length > 0;
+};
 
 const ClickToEdit = React.createClass({
   getDefaultProps() {
@@ -24,9 +29,13 @@ const ClickToEdit = React.createClass({
   },
 
   finalizeHandler(event) {
+    if (IsNodeOrAChildOf(event.target, React.findDOMNode(this.refs.edittable))) {
+      return;
+    }
     event.preventDefault();
     this.setState({
-      active: false
+      active: false,
+      value: React.findDOMNode(this.refs.input).value
     });
     document.removeEventListener('click', this.finalizeHandler);
   },
@@ -34,18 +43,19 @@ const ClickToEdit = React.createClass({
   render() {
     const edittable = () => {
       return (
-        <div ref="edittable" className="input-group input-group-sm">
-          <input type={this.props.type}
+        <div ref="edittable" className="input-group">
+          <input ref="input"
+                 type={this.props.type}
                  className="form-control"
                  aria-label={this.props.label}
-                 value={this.state.value}
+                 defaultValue={this.state.value}
             />
         </div>
       );
     };
 
     const inactive = () => {
-      return <div onClick={this.clickHandler}>{this.props.value}</div>
+      return <div onClick={this.clickHandler}>{this.state.value}</div>
     };
 
     return this.state.active ? edittable() : inactive();
