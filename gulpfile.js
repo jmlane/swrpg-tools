@@ -6,6 +6,7 @@ var source = require('vinyl-source-stream');
 var spawn = require('child_process').spawn;
 var packageJson = require('./package.json');
 var nodemon = require('nodemon');
+var mocha = require('gulp-mocha');
 
 var logBuffer = function (buf) {
   gutil.log(buf.toString());
@@ -75,4 +76,17 @@ gulp.task('watch-bundle', function () {
   w.on('update', watchifyBundle);
 
   return watchifyBundle();
+});
+
+gulp.task('mocha', function () {
+  return gulp.src(['test/*.js'])
+    .pipe(mocha({
+      reporter: 'list',
+      compilers: {js: require('babel/register')}
+    }))
+    .on('error', gutil.log);
+});
+
+gulp.task('watch-mocha', function () {
+  gulp.watch(['test/**', 'src/**'], ['mocha']);
 });
