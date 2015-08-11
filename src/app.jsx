@@ -1,6 +1,6 @@
 var React = require('react');
 var Header = require('./components/Header.jsx');
-var CharacterTable = require('./CharacterTable.jsx');
+var GroupTracker = require('./components/GroupTracker.jsx');
 
 var data = {
   characters: [
@@ -35,6 +35,6 @@ var data = {
 React.render(
   <div className="container" >
     <Header />
-    <CharacterTable data={data.characters} />
+    <GroupTracker characters={data.characters} />
   </div>,
   document.body);

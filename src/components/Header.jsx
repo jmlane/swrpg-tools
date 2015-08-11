@@ -8,7 +8,7 @@ var Header = React.createClass({
         <nav>
           <ul className="nav nav-pills pull-right">
             <li role="presentation" className="active">
-              <a href="#">Initiative</a>
+              <a href="#">Status</a>
             </li>
           </ul>
         </nav>
