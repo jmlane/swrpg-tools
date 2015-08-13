@@ -39,7 +39,7 @@ gulp.task('serve', function () {
 gulp.task('watch-serve', function () {
   var server = nodemon({
     debug: true,
-    watch: 'server/',
+    watch: 'server',
     stdout: false
   });
   server.on('readable', function () {
