@@ -57,19 +57,19 @@ gulp.task('bundle', function () {
   b.add('./src/app.jsx');
 
   return b.bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify error:')))
     .pipe(source('app.js'))
     .pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('watch-bundle', function () {
   var w = watchify(browserify(watchify.args));
-  w.on('log', gutil.log);
+  w.on('log', gutil.log.bind(gutil, 'Watchify:'));
   w.add('./src/app.jsx');
 
   var watchifyBundle = function () {
     return w.bundle()
-      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+      .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify error:')))
       .pipe(source('app.js'))
       .pipe(gulp.dest('./dist/js/'));
   };
