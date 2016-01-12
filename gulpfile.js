@@ -52,30 +52,23 @@ gulp.task('watch-serve', function () {
   });
 });
 
-gulp.task('bundle', function () {
-  var b = browserify();
-  b.add('./src/app.jsx');
-
-  return b.bundle()
+var bundleStream = function (browserify) {
+  return browserify.bundle()
     .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify error:')))
     .pipe(source('app.js'))
     .pipe(gulp.dest('./dist/js/'));
+};
+
+gulp.task('bundle', function () {
+  var b = browserify(packageJson.browserify.config);
+  return bundleStream(b);
 });
 
 gulp.task('watch-bundle', function () {
-  var w = watchify(browserify(watchify.args));
+  var w = watchify(browserify(packageJson.browserify.config));
   w.on('log', gutil.log.bind(gutil, 'Watchify:'));
-  w.add('./src/app.jsx');
-
-  var watchifyBundle = function () {
-    return w.bundle()
-      .on('error', gutil.log.bind(gutil, gutil.colors.red('Browserify error:')))
-      .pipe(source('app.js'))
-      .pipe(gulp.dest('./dist/js/'));
-  };
-  w.on('update', watchifyBundle);
-
-  return watchifyBundle();
+  w.on('update', bundleStream.bind(w, w));
+  return bundleStream(w);
 });
 
 gulp.task('mocha', function () {
