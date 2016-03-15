@@ -4,10 +4,6 @@
   "version": "0.1.0",
   "description": "A Web app containing tools for managing a Star Wars Role Playing Game (FFG).",
   "license": "ISC",
-  "main": "server/main.js",
-  "scripts": {
-    "start": "node server/main.js"
-  },
   "private": true,
   "browserify": {
     "config": {
@@ -19,10 +15,6 @@
       ["babelify"]
     ]
   },
-  "dependencies": {
-    "cloud-env": "^0.1.1",
-    "express": "^4.12.4"
-  },
   "devDependencies": {
     "babel": "^5.8.21",
     "babelify": "^6.1.3",
@@ -31,7 +23,6 @@
     "gulp-mocha": "^2.1.3",
     "gulp-util": "^3.0.4",
     "mocha": "^2.2.5",
-    "nodemon": "^1.3.7",
     "react": "^0.13.3",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
