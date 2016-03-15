@@ -1,8 +1,24 @@
 var React = require('react');
 
 var CharacterTable = React.createClass({
+  getInitialState() {
+    return {
+      characters: []
+    }
+  },
+
+  componentDidMount() {
+    $.ajax('/api/characters')
+      .done((data) => {
+        if (!this.isMounted) return;
+        this.setState({
+          characters: data
+        });
+      });
+  },
+
   render: function () {
-    var rows = this.props.data.map((character) => {
+    var rows = this.state.characters.map((character) => {
       return (
         <tr>
           <th scope="row">{character.name}</th>
